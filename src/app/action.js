@@ -54,4 +54,23 @@ export const updateWorkExperience=(id,data)=> {
 };
 export const deleteWorkExperience=(id)=> update(ACTIONS.DELETE_WORK_EXPERIENCE_DATA, {id});
 
+const education={
+    id:0,
+    studyProgram:'',
+    institution:'',
+    startDate:'',
+    endDate:'',
+    description:'',
+    additionalData:''
+}
 
+export const addEducation=()=> update(ACTIONS.ADD_EDUCATION_DATA,education);
+
+export const updateEducation=(id,data)=> {
+    const payload={
+        ...data,
+        id:id
+    };
+    return update(ACTIONS.UPDATE_EDUCATION_DATA,payload)
+};
+export const deleteEducation=(id)=> update(ACTIONS.DELETE_EDUCATION_DATA, {id});

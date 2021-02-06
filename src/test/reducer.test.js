@@ -192,3 +192,53 @@ it('should update work experience', () => {
     result=reducer(result,actions.deleteWorkExperience(1));
     expect(result).toEqual(updatedSocialWorkExperience);
 });
+
+const updatedEducation={
+    user:{
+        firstName:'',
+        lastName:'',
+        professionalTitle:''
+    },
+    contact:{
+        email:'',
+        phoneNumber:'',
+        address:'',
+    },
+    titles:{
+        workExperienceTitle:'EDUCATION',
+        educationTitle:'WORK EXPERIENCE',
+        skillsTitle:'SKILLS'
+    },
+    socialAccount:[],
+    workExperience:[],
+    education:[
+        {
+            id:0,
+            studyProgram:'University',
+            institution:'ABC',
+            startDate:'2020/01/01',
+            endDate:'',
+            description:'',
+            additionalData:''
+        },
+        {
+            id:2,
+            studyProgram:'',
+            institution:'',
+            startDate:'',
+            endDate:'',
+            description:'',
+            additionalData:''
+        }
+    ]
+};
+
+it('should update education', () => {
+    let result= reducer(undefined, actions.addEducation());
+    result= reducer(result, actions.updateEducation(0,{studyProgram:'University',institution:'ABC'}));
+    result= reducer(result, actions.addEducation());
+    result= reducer(result, actions.updateEducation(0,{startDate:'2020/01/01'}));
+    result= reducer(result, actions.addEducation());
+    result=reducer(result,actions.deleteEducation(1));
+    expect(result).toEqual(updatedEducation);
+});

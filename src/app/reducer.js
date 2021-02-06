@@ -37,6 +37,14 @@ const pushWorkExperience=(payload)=> {
     return {...payload, id:pushWorkExperience.counter++};
 };
 
+const pushEducation=(payload)=> {
+    if(pushEducation.counter === undefined)
+    {
+        pushEducation.counter=0;
+    }
+    return {...payload, id:pushEducation.counter++};
+};
+
 export default function reducer(state = initialState, action)
 {
     switch (action.type) {
@@ -95,6 +103,23 @@ export default function reducer(state = initialState, action)
     case Actions.DELETE_WORK_EXPERIENCE_DATA:
         return {...state,
             workExperience:state.workExperience.filter(workExperience=> workExperience.id!== action.payload.id)
+        };
+    case Actions.ADD_EDUCATION_DATA:
+        return { ...state, 
+            education:[
+                ...state.education,
+                pushEducation(action.payload)
+            ]
+        };
+
+    case Actions.UPDATE_EDUCATION_DATA:
+        return {...state,
+            education:state.education.map(education=> education.id=== action.payload.id ? {...education,...action.payload} : education)
+        };
+
+    case Actions.DELETE_EDUCATION_DATA:
+        return {...state,
+            education:state.education.filter(education=> education.id!== action.payload.id)
         };
     default:
         return state
