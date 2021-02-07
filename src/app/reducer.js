@@ -47,6 +47,7 @@ const pushEducation=(payload)=> {
 
 export default function reducer(state = initialState, action)
 {
+    console.log(action.type,state);
     switch (action.type) {
     case Actions.UPDATE_USER_DATA:
         return { ...state, 
