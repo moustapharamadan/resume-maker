@@ -1,6 +1,6 @@
 import React from 'react'
 import {Provider} from 'react-redux'
-import store from './app/store'
+import store from './redux/store'
 import {Text} from './components/Text'
 import styles from './style.css';
 

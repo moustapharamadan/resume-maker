@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import store from '../app/store'
-import {updateFirstName, updateLastName, updateProfessionalTitle, updateEmail, updatePhoneNumber, updateAddress} from '../app/action'
+import store from '../redux/store'
+import {updateFirstName, updateLastName, updateProfessionalTitle, updateEmail, updatePhoneNumber, updateAddress} from '../redux/action'
 
 export class Text extends Component {
     _onBlur= event =>{

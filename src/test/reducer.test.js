@@ -1,5 +1,5 @@
-import reducer from '../app/reducer';
-import * as actions from '../app/action';
+import reducer from '../redux/reducer';
+import * as actions from '../redux/action';
 
 const initialStoreState={
     user:{
