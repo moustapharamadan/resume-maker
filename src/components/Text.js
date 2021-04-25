@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import store from '../redux/store'
-import {updateFirstName, updateLastName, updateProfessionalTitle, updateEmail, updatePhoneNumber, updateAddress} from '../redux/action'
+import {updateName, updateProfessionalTitle, updateEmail, updatePhoneNumber, updateAddress, updatePitch} from '../redux/action'
 
 export class Text extends Component {
     _onBlur= event =>{
         const data=event.currentTarget.textContent;
-        if(this.props.stateName==="firstName")
-            store.dispatch(updateFirstName(data));
-        else if(this.props.stateName==="lastName")
-            store.dispatch(updateLastName(data));
+        if(this.props.stateName==="name")
+            store.dispatch(updateName(data));
+        else if(this.props.stateName==="pitch")
+            store.dispatch(updatePitch(data));
         else if(this.props.stateName==="professionalTitle")
             store.dispatch(updateProfessionalTitle(data));
         else if(this.props.stateName==="email")

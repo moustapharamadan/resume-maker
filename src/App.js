@@ -1,15 +1,11 @@
 import React from 'react'
 import {Provider} from 'react-redux'
 import store from './redux/store'
-import {Text} from './components/Text'
-import styles from './style.css';
-
+import {GeneralInfo} from "./components/GeneralInfo/GeneralInfo";
 export default function App() {
   return (
     <Provider store={store}>
-        <Text stateName="firstName" placeholder="First Name" value="Moustapha"/>
-        <Text stateName="lastName" placeholder="Last Name"/>
-        <Text stateName="professionalTitle" placeholder="Professional Title"/>
+        <GeneralInfo/>
     </Provider>
   );
 }

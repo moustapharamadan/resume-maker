@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import App from './App';
 // import store from './app/store';
-// import {updateUserData, updateFirstName, updateLastName, updateProfessionalTitle, updateEmail, updatePhoneNumber, updateAddress, addSocialAccount, updateSocialAccount, deleteSocialAccount, addWorkExperience, updateWorkExperience, deleteWorkExperience} from './app/action'
+// import {updateUserData, updateName, updateLastName, updateProfessionalTitle, updateEmail, updatePhoneNumber, updateAddress, addSocialAccount, updateSocialAccount, deleteSocialAccount, addWorkExperience, updateWorkExperience, deleteWorkExperience} from './app/action'
 
 // console.log(store.getState());
 
-// store.dispatch(updateUserData({firstName:"Moustapha"}));
+// store.dispatch(updateUserData({name:"Moustapha"}));
 // console.log(store.getState());
 // store.dispatch(updateUserData({lastName:"Ramadan"}));
 // console.log(store.getState());
 
-// store.dispatch(updateFirstName("Omar"));
+// store.dispatch(updateName("Omar"));
 // store.dispatch(updateLastName("Ram"));
 // store.dispatch(updateProfessionalTitle("AUB"));
 // console.log(store.getState());

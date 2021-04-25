@@ -1,0 +1,38 @@
+[contenteditable="true"]:empty:before {
+  content: attr(placeholder);
+  display: block;
+  cursor: text;
+  width: 100%;
+}
+
+.cv_title {
+  background: rgb(55, 68, 87);
+  padding: 25px 100px;
+  text-align: left;
+  color: #fff;
+  width: fit-content;
+}
+
+.cv_title .name {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.cv_title .position {
+  font-size: 24px;
+  color: #f25547;
+  margin-bottom: 0.5em;
+}
+
+.profile_pic {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border: solid 5px #f25547;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  overflow: hidden;
+}

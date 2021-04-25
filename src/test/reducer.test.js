@@ -3,9 +3,9 @@ import * as actions from '../redux/action';
 
 const initialStoreState={
     user:{
-        firstName:'',
-        lastName:'',
-        professionalTitle:''
+        name:'',
+        professionalTitle:'',
+        pitch:''
     },
     contact:{
         email:'',
@@ -28,9 +28,9 @@ it('should return the initial state', () => {
 
 const updatedUserData={
     user:{
-        firstName:'MyFirstName',
-        lastName:'MyLastName',
-        professionalTitle:'Software Developer'
+        name:'MyFirstName MyLastName',
+        professionalTitle:'Software Developer',
+        pitch:'Short and engaging summanry/pitch about yourself'
     },
     contact:{
         email:'',
@@ -48,17 +48,17 @@ const updatedUserData={
 };
 
 it('should update user data', () => {
-    let result= reducer(undefined, actions.updateFirstName('MyFirstName'));
-    result=reducer(result, actions.updateLastName('MyLastName'));
+    let result= reducer(undefined, actions.updateName('MyFirstName MyLastName'));
     result=reducer(result,actions.updateProfessionalTitle('Software Developer'));
+    result=reducer(result,actions.updatePitch('Short and engaging summanry/pitch about yourself'));
     expect(result).toEqual(updatedUserData);
 });
 
 const updatedContactData={
     user:{
-        firstName:'',
-        lastName:'',
-        professionalTitle:''
+        name:'',
+        professionalTitle:'',
+        pitch:''
     },
     contact:{
         email:'email@example.com',
@@ -84,9 +84,9 @@ it('should update contact data', () => {
 
 const updatedTitles={
     user:{
-        firstName:'',
-        lastName:'',
-        professionalTitle:''
+        name:'',
+        professionalTitle:'',
+        pitch:''
     },
     contact:{
         email:'',
@@ -112,9 +112,9 @@ it('should update section titles', () => {
 
 const updatedSocialAccountData={
     user:{
-        firstName:'',
-        lastName:'',
-        professionalTitle:''
+        name:'',
+        professionalTitle:'',
+        pitch:''
     },
     contact:{
         email:'',
@@ -147,9 +147,9 @@ it('should update social account', () => {
 
 const updatedSocialWorkExperience={
     user:{
-        firstName:'',
-        lastName:'',
-        professionalTitle:''
+        name:'',
+        professionalTitle:'',
+        pitch:''
     },
     contact:{
         email:'',
@@ -195,9 +195,9 @@ it('should update work experience', () => {
 
 const updatedEducation={
     user:{
-        firstName:'',
-        lastName:'',
-        professionalTitle:''
+        name:'',
+        professionalTitle:'',
+        pitch:''
     },
     contact:{
         email:'',

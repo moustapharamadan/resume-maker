@@ -3,9 +3,9 @@ import * as ACTIONS from './actionType'
 export const update=(actionId, data)=> ({type:actionId, payload:data})
 
 export const updateUserData=(data)=> update(ACTIONS.UPDATE_USER_DATA, data);
-export const updateFirstName=(firstName)=> updateUserData({firstName});
-export const updateLastName=(lastName)=> updateUserData({lastName});
+export const updateName=(name)=> updateUserData({name});
 export const updateProfessionalTitle=(professionalTitle)=> updateUserData({professionalTitle});
+export const updatePitch=(pitch)=> updateUserData({pitch});
 
 export const updateContactData=(data)=> update(ACTIONS.UPDATE_CONTACT_DATA,data);
 export const updateEmail=(email)=>updateContactData({email});

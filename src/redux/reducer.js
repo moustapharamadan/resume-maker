@@ -2,9 +2,9 @@ import * as Actions from './actionType'
 
 const initialState={
     user:{
-        firstName:'',
-        lastName:'',
-        professionalTitle:''
+        name:'',
+        professionalTitle:'',
+        pitch:'',
     },
     contact:{
         email:'',
