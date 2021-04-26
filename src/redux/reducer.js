@@ -18,7 +18,14 @@ const initialState={
     },
     socialAccount:[],
     workExperience:[],
-    education:[]
+    education:[],
+    sectionStatus:{
+        picture:false,
+        pitch:false,
+        workExperience:true,
+        education:true,
+        skills:true
+    }
 }
 
 const pushSocialAccount=(payload)=> {
@@ -121,6 +128,13 @@ export default function reducer(state = initialState, action)
     case Actions.DELETE_EDUCATION_DATA:
         return {...state,
             education:state.education.filter(education=> education.id!== action.payload.id)
+        };
+    case Actions.UPDATE_SECTION_STATUS:
+        return { ...state, 
+            sectionStatus:{
+                ...state.sectionStatus,
+                ...action.payload
+            } 
         };
     default:
         return state

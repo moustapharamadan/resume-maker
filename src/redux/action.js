@@ -17,6 +17,13 @@ export const updateWorkExperienceTitle=(workExperienceTitle)=> updateTitles({wor
 export const updateEducationTitle=(educationTitle)=> updateTitles({educationTitle});
 export const updateSkillsTitle=(skillsTitle)=> updateTitles({skillsTitle});
 
+export const updateSectionStatus=(data)=>update(ACTIONS.UPDATE_SECTION_STATUS, data);
+export const updatePictureSectionStatus=(picture)=>updateSectionStatus({picture});
+export const updatePitchSectionStatus=(pitch)=>updateSectionStatus({pitch});
+export const updateWorkExperienceSectionStatus=(workExperience)=>updateSectionStatus({workExperience});
+export const updateEducationSectionStatus=(education)=>updateSectionStatus({education});
+export const updateSkillsSectionStatus=(skills)=>updateSectionStatus({skills});
+
 const socialAcount={
     id:0,
     name:'',

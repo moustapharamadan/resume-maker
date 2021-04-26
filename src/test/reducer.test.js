@@ -19,7 +19,14 @@ const initialStoreState={
     },
     socialAccount:[],
     workExperience:[],
-    education:[]
+    education:[],
+    sectionStatus:{
+        picture:false,
+        pitch:false,
+        workExperience:true,
+        education:true,
+        skills:true
+    }
 };
 
 it('should return the initial state', () => {
@@ -44,7 +51,14 @@ const updatedUserData={
     },
     socialAccount:[],
     workExperience:[],
-    education:[]
+    education:[],
+    sectionStatus:{
+        picture:false,
+        pitch:false,
+        workExperience:true,
+        education:true,
+        skills:true
+    }
 };
 
 it('should update user data', () => {
@@ -72,7 +86,14 @@ const updatedContactData={
     },
     socialAccount:[],
     workExperience:[],
-    education:[]
+    education:[],
+    sectionStatus:{
+        picture:false,
+        pitch:false,
+        workExperience:true,
+        education:true,
+        skills:true
+    }
 };
 
 it('should update contact data', () => {
@@ -100,7 +121,14 @@ const updatedTitles={
     },
     socialAccount:[],
     workExperience:[],
-    education:[]
+    education:[],
+    sectionStatus:{
+        picture:false,
+        pitch:false,
+        workExperience:true,
+        education:true,
+        skills:true
+    }
 };
 
 it('should update section titles', () => {
@@ -129,7 +157,14 @@ const updatedSocialAccountData={
     socialAccount:[{id:1,name:'Stackoverflow', url:'my-stackoverflow-account'},
                     {id:2,name:'Youtube', url:'my-youtube-account'}],
     workExperience:[],
-    education:[]
+    education:[],
+    sectionStatus:{
+        picture:false,
+        pitch:false,
+        workExperience:true,
+        education:true,
+        skills:true
+    }
 };
 
 it('should update social account', () => {
@@ -180,7 +215,14 @@ const updatedSocialWorkExperience={
                     companyDescription:'',
                     accomplishment:''
                     }],
-    education:[]
+    education:[],
+    sectionStatus:{
+        picture:false,
+        pitch:false,
+        workExperience:true,
+        education:true,
+        skills:true
+    }
 };
 
 it('should update work experience', () => {
@@ -230,7 +272,14 @@ const updatedEducation={
             description:'',
             additionalData:''
         }
-    ]
+    ],
+    sectionStatus:{
+        picture:false,
+        pitch:false,
+        workExperience:true,
+        education:true,
+        skills:true
+    }
 };
 
 it('should update education', () => {
@@ -241,4 +290,38 @@ it('should update education', () => {
     result= reducer(result, actions.addEducation());
     result=reducer(result,actions.deleteEducation(1));
     expect(result).toEqual(updatedEducation);
+});
+
+const updatedSectionStatus={
+    user:{
+        name:'',
+        professionalTitle:'',
+        pitch:''
+    },
+    contact:{
+        email:'',
+        phoneNumber:'',
+        address:'',
+    },
+    titles:{
+        workExperienceTitle:'EDUCATION',
+        educationTitle:'WORK EXPERIENCE',
+        skillsTitle:'SKILLS'
+    },
+    socialAccount:[],
+    workExperience:[],
+    education:[],
+    sectionStatus:{
+        picture:true,
+        pitch:false,
+        workExperience:false,
+        education:true,
+        skills:true
+    }
+};
+
+it('should update section status', () => {
+    let result= reducer(undefined, actions.updatePictureSectionStatus(true));
+    result= reducer(result, actions.updateWorkExperienceSectionStatus(false));
+    expect(result).toEqual(updatedSectionStatus);
 });
