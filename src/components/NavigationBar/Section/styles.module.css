@@ -1,0 +1,13 @@
+ul{
+    display: flex;
+}
+li{
+    list-style-type:none;
+}
+
+.sectionBox{
+    width: fit-content;
+    padding: 0.5em;
+    background: rgb(255, 255, 255);
+    border: dashed rgb(0, 0, 0);
+}
