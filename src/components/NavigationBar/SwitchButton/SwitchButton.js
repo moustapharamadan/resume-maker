@@ -1,43 +1,26 @@
 import React, { Component } from 'react'
 import Switch from 'react-switch';
-import store from '../../../redux/store'
 import { updatePictureSectionStatus, updatePitchSectionStatus, updateWorkExperienceSectionStatus, updateEducationSectionStatus, updateSkillsSectionStatus } from '../../../redux/action'
 import styles from "./styles.module.css"
+import { connect } from "react-redux";
 
-export class SwitchButton extends Component {
-    constructor(props) {
-        super(props);
-        const sectionStatus = store.getState().sectionStatus[this.props.name];
-        this.state = { checked: sectionStatus };
-    }
+class SwitchButton extends Component {
 
     static defaultProps = {
         width: 40,
         height: 20
     }
 
-    updateStatus = (name) => {
-        this.setState({ checked: !this.state.checked });
-        if (name === "picture")
-            store.dispatch(updatePictureSectionStatus(this.state.checked));
-        else if (name === "pitch")
-            store.dispatch(updatePitchSectionStatus(this.state.checked));
-        else if (name === "workExperience")
-            store.dispatch(updateWorkExperienceSectionStatus(this.state.checked));
-        else if (name === "education")
-            store.dispatch(updateEducationSectionStatus(this.state.checked));
-        else if (name === "skills")
-            store.dispatch(updateSkillsSectionStatus(this.state.checked));
-    }
-
     render() {
+        const name = this.props.name;
+        const status = this.props.sectionStatus[name];
         return (
             <div>
                 <Switch
-                    onChange={() => this.updateStatus(this.props.name)}
+                    onChange={() => this.props.updateStatus(name, !status)}
                     uncheckedIcon={false}
                     checkedIcon={false}
-                    checked={this.state.checked}
+                    checked={status}
                     width={this.props.width}
                     height={this.props.height} />
                 <span className={styles.switchText}>{this.props.children}</span>
@@ -45,3 +28,23 @@ export class SwitchButton extends Component {
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    updateStatus: (name, status) => {
+        if (name === "picture")
+            dispatch(updatePictureSectionStatus(status));
+        else if (name === "pitch")
+            dispatch(updatePitchSectionStatus(status));
+        else if (name === "workExperience")
+            dispatch(updateWorkExperienceSectionStatus(status));
+        else if (name === "education")
+            dispatch(updateEducationSectionStatus(status));
+        else if (name === "skills")
+            dispatch(updateSkillsSectionStatus(status));
+    }
+})
+const mapStateToProps = (state) => ({
+    sectionStatus: state.sectionStatus
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SwitchButton);

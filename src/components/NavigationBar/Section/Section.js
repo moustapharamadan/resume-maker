@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { SwitchButton } from '../SwitchButton/SwitchButton'
+import SwitchButton from '../SwitchButton/SwitchButton'
 import styles from "./styles.module.css"
 
 export class Section extends Component {

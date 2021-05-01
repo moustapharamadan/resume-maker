@@ -7,7 +7,8 @@ li{
 
 .sectionBox{
     width: fit-content;
-    padding: 0.5em;
-    background: rgb(255, 255, 255);
-    border: dashed rgb(0, 0, 0);
+    padding: 0.1em;
+    background: white;
+    border: black;
+    color: black;
 }
