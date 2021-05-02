@@ -1,0 +1,11 @@
+.verticalMenu {
+    background-color: #eee;
+}
+.verticalMenu ul{
+    display: block;
+    padding: 0;
+}
+.verticalMenu ul li {
+    padding: 0.1em;
+    text-decoration: none;
+}

@@ -1,14 +1,17 @@
-ul{
-    display: flex;
-}
-li{
-    list-style-type:none;
-}
-
 .sectionBox{
     width: fit-content;
-    padding: 0.1em;
+}
+
+.sectionBox ul{
+    display: flex;
     background: white;
-    border: black;
-    color: black;
+}
+.sectionBox ul li{
+    list-style-type:none;
+    padding: 0.1em;
+    color:  #333;
+}
+
+.sectionBox ul li:hover{
+    background: white;
 }
