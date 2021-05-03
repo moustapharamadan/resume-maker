@@ -26,7 +26,8 @@ const initialState = {
         education: true,
         skills: true
     },
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    color: '#f25547'
 }
 
 const pushSocialAccount = (payload) => {
@@ -150,6 +151,11 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 fontFamily: action.payload
+            }
+        case Actions.UPDATE_COLOR:
+            return {
+                ...state,
+                color: action.payload
             }
         default:
             return state

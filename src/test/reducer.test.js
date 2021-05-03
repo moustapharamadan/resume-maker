@@ -27,7 +27,8 @@ const initialStoreState = {
         education: true,
         skills: true
     },
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    color: '#f25547'
 };
 
 it('should return the initial state', () => {
@@ -60,7 +61,8 @@ const updatedUserData = {
         education: true,
         skills: true
     },
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    color: '#f25547'
 };
 
 it('should update user data', () => {
@@ -96,7 +98,8 @@ const updatedContactData = {
         education: true,
         skills: true
     },
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    color: '#f25547'
 };
 
 it('should update contact data', () => {
@@ -132,7 +135,8 @@ const updatedTitles = {
         education: true,
         skills: true
     },
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    color: '#f25547'
 };
 
 it('should update section titles', () => {
@@ -169,7 +173,8 @@ const updatedSocialAccountData = {
         education: true,
         skills: true
     },
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    color: '#f25547'
 };
 
 it('should update social account', () => {
@@ -230,7 +235,8 @@ const updatedSocialWorkExperience = {
         education: true,
         skills: true
     },
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    color: '#f25547'
 };
 
 it('should update work experience', () => {
@@ -288,7 +294,8 @@ const updatedEducation = {
         education: true,
         skills: true
     },
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    color: '#f25547'
 };
 
 it('should update education', () => {
@@ -327,7 +334,8 @@ const updatedSectionStatus = {
         education: false,
         skills: false
     },
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    color: '#f25547'
 };
 
 it('should update section status', () => {
@@ -365,10 +373,46 @@ const updatedFontFamily = {
         education: true,
         skills: true
     },
-    fontFamily: 'Asap'
+    fontFamily: 'Asap',
+    color: '#f25547'
 };
 
 it('should update font family', () => {
     let result = reducer(undefined, actions.updateFontFamily('Asap'));
     expect(result).toEqual(updatedFontFamily);
+});
+
+const updatedColor = {
+    user: {
+        name: '',
+        professionalTitle: '',
+        pitch: ''
+    },
+    contact: {
+        email: '',
+        phoneNumber: '',
+        address: '',
+    },
+    titles: {
+        workExperienceTitle: 'EDUCATION',
+        educationTitle: 'WORK EXPERIENCE',
+        skillsTitle: 'SKILLS'
+    },
+    socialAccount: [],
+    workExperience: [],
+    education: [],
+    sectionStatus: {
+        picture: false,
+        pitch: false,
+        workExperience: true,
+        education: true,
+        skills: true
+    },
+    fontFamily: 'sans-serif',
+    color: '#fffff'
+};
+
+it('should update color', () => {
+    let result = reducer(undefined, actions.updateColor('#fffff'));
+    expect(result).toEqual(updatedColor);
 });

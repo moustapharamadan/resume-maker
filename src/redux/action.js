@@ -25,6 +25,7 @@ export const updateEducationSectionStatus = (education) => updateSectionStatus({
 export const updateSkillsSectionStatus = (skills) => updateSectionStatus({ skills });
 
 export const updateFontFamily = (fontFamily) => update(ACTIONS.UPDATE_FONT_FAMILY, fontFamily);
+export const updateColor = (color) => update(ACTIONS.UPDATE_COLOR, color);
 
 const socialAcount = {
     id: 0,
