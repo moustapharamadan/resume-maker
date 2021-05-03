@@ -5,6 +5,7 @@
 .sectionBox ul{
     display: flex;
     background: white;
+    border-radius: 0;
 }
 .sectionBox ul li{
     list-style-type:none;
