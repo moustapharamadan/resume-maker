@@ -10,6 +10,7 @@
     list-style-type:none;
     padding: 0.1em;
     color:  #333;
+    font-size:1em;
 }
 
 .sectionBox ul li:hover{

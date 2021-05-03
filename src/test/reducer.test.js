@@ -26,7 +26,8 @@ const initialStoreState = {
         workExperience: true,
         education: true,
         skills: true
-    }
+    },
+    fontFamily: 'sans-serif'
 };
 
 it('should return the initial state', () => {
@@ -58,7 +59,8 @@ const updatedUserData = {
         workExperience: true,
         education: true,
         skills: true
-    }
+    },
+    fontFamily: 'sans-serif'
 };
 
 it('should update user data', () => {
@@ -93,7 +95,8 @@ const updatedContactData = {
         workExperience: true,
         education: true,
         skills: true
-    }
+    },
+    fontFamily: 'sans-serif'
 };
 
 it('should update contact data', () => {
@@ -128,7 +131,8 @@ const updatedTitles = {
         workExperience: true,
         education: true,
         skills: true
-    }
+    },
+    fontFamily: 'sans-serif'
 };
 
 it('should update section titles', () => {
@@ -164,7 +168,8 @@ const updatedSocialAccountData = {
         workExperience: true,
         education: true,
         skills: true
-    }
+    },
+    fontFamily: 'sans-serif'
 };
 
 it('should update social account', () => {
@@ -224,7 +229,8 @@ const updatedSocialWorkExperience = {
         workExperience: true,
         education: true,
         skills: true
-    }
+    },
+    fontFamily: 'sans-serif'
 };
 
 it('should update work experience', () => {
@@ -281,7 +287,8 @@ const updatedEducation = {
         workExperience: true,
         education: true,
         skills: true
-    }
+    },
+    fontFamily: 'sans-serif'
 };
 
 it('should update education', () => {
@@ -319,7 +326,8 @@ const updatedSectionStatus = {
         workExperience: false,
         education: false,
         skills: false
-    }
+    },
+    fontFamily: 'sans-serif'
 };
 
 it('should update section status', () => {
@@ -329,4 +337,38 @@ it('should update section status', () => {
     result = reducer(result, actions.updateEducationSectionStatus(false));
     result = reducer(result, actions.updateSkillsSectionStatus(false));
     expect(result).toEqual(updatedSectionStatus);
+});
+
+const updatedFontFamily = {
+    user: {
+        name: '',
+        professionalTitle: '',
+        pitch: ''
+    },
+    contact: {
+        email: '',
+        phoneNumber: '',
+        address: '',
+    },
+    titles: {
+        workExperienceTitle: 'EDUCATION',
+        educationTitle: 'WORK EXPERIENCE',
+        skillsTitle: 'SKILLS'
+    },
+    socialAccount: [],
+    workExperience: [],
+    education: [],
+    sectionStatus: {
+        picture: false,
+        pitch: false,
+        workExperience: true,
+        education: true,
+        skills: true
+    },
+    fontFamily: 'Asap'
+};
+
+it('should update font family', () => {
+    let result = reducer(undefined, actions.updateFontFamily('Asap'));
+    expect(result).toEqual(updatedFontFamily);
 });
