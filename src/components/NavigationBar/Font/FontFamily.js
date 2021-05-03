@@ -3,7 +3,7 @@ import { updateFontFamily } from '../../../redux/action';
 import styles from "./styles.module.css"
 import { connect } from "react-redux";
 
-class Font extends Component {
+class FontFamily extends Component {
     render() {
         return (
             <div className={styles.verticalMenu}>
@@ -29,4 +29,4 @@ const mapStateToProps = (state) => ({
     sectionStatus: state.sectionStatus
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Font);
+export default connect(mapStateToProps, mapDispatchToProps)(FontFamily);

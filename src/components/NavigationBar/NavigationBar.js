@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
 import { Section } from './Section/Section'
-import Font from './Font/Font'
+import FontFamily from './Font/FontFamily'
 import styles from "./styles.module.css"
 
 export class NavigationBar extends Component {
@@ -17,8 +17,8 @@ export class NavigationBar extends Component {
                         </Tippy>
                     </li>
                     <li>
-                        <Tippy interactive={true} content={<Font />} placement="bottom" arrow maxWidth={'100%'} trigger="click" >
-                            <div className={styles.navBarItem}>Font</div>
+                        <Tippy interactive={true} content={<FontFamily />} placement="bottom" arrow maxWidth={'100%'} trigger="click" >
+                            <div className={styles.navBarItem}>Theme Fonts</div>
                         </Tippy>
                     </li>
                 </ul>
