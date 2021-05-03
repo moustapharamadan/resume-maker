@@ -5,16 +5,29 @@
 ul {
     list-style-type: none;
     background-color: #333;
+    width: fit-content;
+    padding: 0;
+    margin: 1em auto;
     display: flex;
+    border-radius: 15px;
 }
 
 ul li {
     padding: 0.25em;    
-    margin: 0 0.25em;
     color: white;
     font-size:1.5em;
 }
 
 ul li:hover {
     background-color: #ccc;
+}
+
+ul li:hover:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+ul li:hover:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
