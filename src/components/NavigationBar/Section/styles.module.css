@@ -1,10 +1,10 @@
 .sectionBox{
     width: fit-content;
+    cursor: default;
 }
 
 .sectionBox ul{
     display: flex;
-    background: white;
     border-radius: 0;
 }
 .sectionBox ul li{
@@ -15,5 +15,5 @@
 }
 
 .sectionBox ul li:hover{
-    background: white;
+    background: #333!important;
 }

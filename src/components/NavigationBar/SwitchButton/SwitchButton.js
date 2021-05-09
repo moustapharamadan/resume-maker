@@ -15,7 +15,7 @@ class SwitchButton extends Component {
         const name = this.props.name;
         const status = this.props.sectionStatus[name];
         return (
-            <div>
+            <div className={styles.switchButton}>
                 <Switch
                     onChange={() => this.props.updateStatus(name, !status)}
                     uncheckedIcon={false}

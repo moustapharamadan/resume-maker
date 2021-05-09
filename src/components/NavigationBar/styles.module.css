@@ -1,8 +1,8 @@
-.navBarItem{
+.navBar {
     cursor: pointer;
 }
 
-ul {
+.navBar ul {
     list-style-type: none;
     background-color: #333;
     width: fit-content;
@@ -12,22 +12,22 @@ ul {
     border-radius: 15px;
 }
 
-ul li {
+.navBar ul li {
     padding: 0.25em;    
     color: white;
     font-size:1.5em;
 }
 
-ul li:hover {
+.navBar ul li:hover {
     background-color: #ccc;
 }
 
-ul li:hover:first-child {
+.navBar ul li:hover:first-child {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 }
 
-ul li:hover:last-child {
+.navBar ul li:hover:last-child {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }

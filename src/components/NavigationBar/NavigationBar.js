@@ -11,7 +11,7 @@ export class NavigationBar extends Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.navBar}>
                 <ul>
                     <li>
                         <Tippy interactive={true} content={<Section />} placement="bottom" arrow maxWidth={'100%'} trigger="click">

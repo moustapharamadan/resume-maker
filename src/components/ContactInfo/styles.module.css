@@ -1,0 +1,39 @@
+a {
+    pointer-events: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact_info {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    background-color: rgb(44, 52, 63);
+    cursor: pointer;
+}
+
+.contact_info ul {
+    display: flex;
+}
+
+.contact_info ul li {
+    margin-right: 15px;
+}
+
+.contact_info ul li:last-child {
+    margin-right: 0px;
+}
+
+.icon {
+    color: #fff;
+}
+
+.icon i {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.data {
+    color: #fff;
+    font-size: 16px;
+    padding-left: 0.5em;
+}

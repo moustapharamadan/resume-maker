@@ -1,8 +1,8 @@
 .verticalMenu {
-    background-color: #eee;
+    background-color: #333;
 }
 .verticalMenu ul{
-    display: block;
+    display: inline!important;
     padding: 0;
     border-radius: 0;
 }

@@ -1,0 +1,20 @@
+.ContactInfoPopUp ul{
+    display: inline-block;
+    height: 100%;
+    border-radius:0;
+}
+
+.ContactInfoPopUp ul li .item{
+    display: flex;
+    justify-content: center;
+}
+
+.ContactInfoPopUp ul li i{
+    vertical-align:middle;
+    line-height:200%;
+}
+
+.ContactInfoPopUp ul li .item .input{
+    display: inline;
+    margin: 10%;
+}
