@@ -1,4 +1,3 @@
-'use strict'
 import React, { Component } from 'react'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional

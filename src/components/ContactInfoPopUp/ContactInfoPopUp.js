@@ -11,7 +11,7 @@ export default class ContactInfoPopUp extends Component {
                         <div className={styles.item}>
                             <i class="fas fa-phone" />
                             <div className={styles.input}>
-                                <div>Phone Number</div>
+                                <label>Phone Number</label>
                                 <input placeholder="+0123456789" typeof="text" />
                             </div>
                         </div>
@@ -20,7 +20,7 @@ export default class ContactInfoPopUp extends Component {
                         <div className={styles.item}>
                             <i class="fas fa-at" />
                             <div className={styles.input}>
-                                <div>Email</div>
+                                <label>Email</label>
                                 <input placeholder="sample@email.com" typeof="text" />
                             </div>
                         </div>
@@ -29,7 +29,7 @@ export default class ContactInfoPopUp extends Component {
                         <div className={styles.item}>
                             <i class="fas fa-map-marker-alt" />
                             <div className={styles.input}>
-                                <div>Address</div>
+                                <label>Address</label>
                                 <input placeholder="Country, City" typeof="text" />
                             </div>
                         </div>
@@ -38,10 +38,14 @@ export default class ContactInfoPopUp extends Component {
                 <h3>Social Media</h3>
                 <ul>
                     <li>
-                        <input type="checkbox" id="linkedin"></input>
-                        <div class="fab fa-linkedin-in" />
-                        <label>LinkedIn</label>
-                        <input placeholder="+0123456789" typeof="text" />
+                        <div className={styles.item}>
+                            <input type="checkbox" id="linkedin"></input>
+                            <div class="fab fa-linkedin-in" />
+                            <div className={styles.input}>
+                                <label>LinkedIn</label>
+                                <input placeholder="" typeof="text" />
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </section >
