@@ -5,45 +5,51 @@ export default class ContactInfoPopUp extends Component {
     render() {
         return (
             <section className={styles.ContactInfoPopUp}>
-                <h3>Main Contact</h3>
+                <ul className={styles.contactTab}>
+                    <li>
+                        <h3>Main Contact</h3>
+                    </li>
+                    <li>
+                        <h3>Social Media</h3>
+                    </li>
+                </ul>
                 <ul>
                     <li>
                         <div className={styles.item}>
                             <i class="fas fa-phone" />
-                            <div className={styles.input}>
+                            <div className={styles.styledInput}>
+                                <input type="text" required />
                                 <label>Phone Number</label>
-                                <input placeholder="+0123456789" typeof="text" />
                             </div>
                         </div>
                     </li>
                     <li>
                         <div className={styles.item}>
                             <i class="fas fa-at" />
-                            <div className={styles.input}>
+                            <div className={styles.styledInput}>
+                                <input type="text" required />
                                 <label>Email</label>
-                                <input placeholder="sample@email.com" typeof="text" />
                             </div>
                         </div>
                     </li>
                     <li>
                         <div className={styles.item}>
                             <i class="fas fa-map-marker-alt" />
-                            <div className={styles.input}>
+                            <div className={styles.styledInput}>
+                                <input type="text" required />
                                 <label>Address</label>
-                                <input placeholder="Country, City" typeof="text" />
                             </div>
                         </div>
                     </li>
                 </ul>
-                <h3>Social Media</h3>
                 <ul>
                     <li>
                         <div className={styles.item}>
-                            <input type="checkbox" id="linkedin"></input>
-                            <div class="fab fa-linkedin-in" />
-                            <div className={styles.input}>
+                            <input className={styles.checkbox} type="checkbox" id="linkedin" />
+                            <i class="fab fa-linkedin-in" />
+                            <div className={styles.styledInput}>
+                                <input type="text" required />
                                 <label>LinkedIn</label>
-                                <input placeholder="" typeof="text" />
                             </div>
                         </div>
                     </li>

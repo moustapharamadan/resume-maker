@@ -1,22 +1,94 @@
-.ContactInfoPopUp
-{
-    vertical-align: middle;
-    background-color: #333;
+.ContactInfoPopUp {
+    width: 650px;
+    max-width: 100%;
+    margin: 20px auto 25px auto;
+}
+
+.ContactInfoPopUp .contactTab{
+    display: flex;
+    background: #333;
+    list-style-type: none;
+    width: fit-content;
+    margin: 1em auto;
+}
+
+.ContactInfoPopUp .contactTab li{
+    margin: 1rem;
     color: white;
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.ContactInfoPopUp .contactTab li:hover{
+    cursor: pointer;
+    margin: 1rem;
+    background: #ccc;
 }
 
 .ContactInfoPopUp ul{
     list-style-type: none;
-}
-
-.ContactInfoPopUp ul li i{
     display: inline-block;
 }
 
-.ContactInfoPopUp ul li label{
-    display: block;
+.ContactInfoPopUp .item{
+    float: left;
+    width: fit-content;
 }
 
-.ContactInfoPopUp ul li .input{
-    display: inline-block;
+.ContactInfoPopUp i{
+    float: left;
+    margin: 3rem 1rem;
+    position: relative;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+.ContactInfoPopUp .checkbox{
+    float: left;
+    margin: 3rem 1rem;
+    position: relative;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+.ContactInfoPopUp input {
+    padding: 30px;
+    border: 0;
+    width: 100%;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+}
+
+.ContactInfoPopUp .styledInput {
+    float: right;
+    margin: 1rem 0;
+    position: relative;
+    border-radius: 4px;
+}
+
+.ContactInfoPopUp .styledInput label {
+    color: #999;
+    padding: 1.3rem 30px 1rem 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+.ContactInfoPopUp input:focus ~ label, 
+.ContactInfoPopUp input:valid ~ label {
+    font-size: 0.75em;
+    color: #999;
+    top: -5px;
+    -webkit-transition: all 0.225s ease;
+    transition: all 0.225s ease;
+}
+
+.ContactInfoPopUp input:focus
+{ 
+    outline: 0; 
 }
