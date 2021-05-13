@@ -53,6 +53,66 @@ export default class ContactInfoPopUp extends Component {
                             </div>
                         </div>
                     </li>
+                    <li>
+                        <div className={styles.item}>
+                            <input className={styles.checkbox} type="checkbox" id="website" />
+                            <i class="fas fa-globe"></i>
+                            <div className={styles.styledInput}>
+                                <input type="text" required />
+                                <label>Website</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.item}>
+                            <input className={styles.checkbox} type="checkbox" id="twitter" />
+                            <i class="fab fa-twitter"></i>
+                            <div className={styles.styledInput}>
+                                <input type="text" required />
+                                <label>Twitter</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.item}>
+                            <input className={styles.checkbox} type="checkbox" id="facebook" />
+                            <i class="fab fa-facebook-f"></i>
+                            <div className={styles.styledInput}>
+                                <input type="text" required />
+                                <label>Facebook</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.item}>
+                            <input className={styles.checkbox} type="checkbox" id="github" />
+                            <i class="fab fa-github"></i>
+                            <div className={styles.styledInput}>
+                                <input type="text" required />
+                                <label>GitHub</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.item}>
+                            <input className={styles.checkbox} type="checkbox" id="github" />
+                            <i class="fab fa-github"></i>
+                            <div className={styles.styledInput}>
+                                <input type="text" required />
+                                <label>GitHub</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className={styles.item}>
+                            <input className={styles.checkbox} type="checkbox" id="stackOverflow" />
+                            <i class="fab fa-stack-overflow"></i>
+                            <div className={styles.styledInput}>
+                                <input type="text" required />
+                                <label>Stack Overflow</label>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </section >
         )

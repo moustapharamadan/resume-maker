@@ -32,7 +32,7 @@
 
 .ContactInfoPopUp .item{
     float: left;
-    width: fit-content;
+    width: 100%;
 }
 
 .ContactInfoPopUp i{
