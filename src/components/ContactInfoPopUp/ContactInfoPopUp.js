@@ -73,22 +73,25 @@ class SocialMedia extends Component {
         return (
             <ul>
                 <li>
-                    <SocialMediaField name="linkedin" icon="fab fa-linkedin-in" onBlur={this.props.onBlur}>LinkedIn</SocialMediaField>
-                </li>
-                <li>
-                    <SocialMediaField name="website" icon="fas fa-globe" onBlur={this.props.onBlur}>Website</SocialMediaField>
-                </li>
-                <li>
-                    <SocialMediaField name="twitter" icon="fab fa-twitter" onBlur={this.props.onBlur}>Twitter</SocialMediaField>
-                </li>
-                <li>
                     <SocialMediaField name="facebook" icon="fab fa-facebook-f" onBlur={this.props.onBlur}>Facebook</SocialMediaField>
                 </li>
                 <li>
                     <SocialMediaField name="github" icon="fab fa-github" onBlur={this.props.onBlur}>GitHub</SocialMediaField>
                 </li>
                 <li>
+                    <SocialMediaField name="linkedin" icon="fab fa-linkedin-in" onBlur={this.props.onBlur}>LinkedIn</SocialMediaField>
+                </li>
+                <li>
                     <SocialMediaField name="stackOverflow" icon="fab fa-stack-overflow" onBlur={this.props.onBlur}>Stack Overflow</SocialMediaField>
+                </li>
+                <li>
+                    <SocialMediaField name="skype" icon="fab fa-skype" onBlur={this.props.onBlur}>Skype</SocialMediaField>
+                </li>
+                <li>
+                    <SocialMediaField name="twitter" icon="fab fa-twitter" onBlur={this.props.onBlur}>Twitter</SocialMediaField>
+                </li>
+                <li>
+                    <SocialMediaField name="website" icon="fas fa-globe" onBlur={this.props.onBlur}>Website</SocialMediaField>
                 </li>
             </ul>
         )
@@ -105,11 +108,11 @@ class ContactInfoPopUp extends Component {
         return (
             <section className={styles.ContactInfoPopUp}>
                 <ul className={styles.contactTab}>
-                    <li>
-                        <h3 onClick={() => this.setState({ showMainContact: true })}>Main Contact</h3>
+                    <li className={this.state.showMainContact ? styles.active : ""} onClick={() => this.setState({ showMainContact: true })}>
+                        <h3>Main Contact</h3>
                     </li>
-                    <li>
-                        <h3 onClick={() => this.setState({ showMainContact: false })}>Social Media</h3>
+                    <li className={!this.state.showMainContact ? styles.active : ""} onClick={() => this.setState({ showMainContact: false })}>
+                        <h3>Social Media</h3>
                     </li>
                 </ul>
                 {
@@ -124,7 +127,7 @@ const mapDispatchToProps = (dispatch) => ({
 
     updateSocialMedia: (stateName, data) => {
         console.log(stateName, data);
-        if (["linkedin", "website", "twitter", "facebook", "github", "stackOverflow"].includes(stateName)) {
+        if (["facebook", "github", "linkedin", "stackOverflow", "skype", "twitter", "website"].includes(stateName)) {
             dispatch(deleteSocialAccount(stateName));
             if (data.trim()) {
                 dispatch(initSocialAccount(stateName, data));
