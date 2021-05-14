@@ -38,69 +38,57 @@ class MainContact extends Component {
         )
     }
 }
+
+class SocialMediaField extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            pushToRedux: false,
+            fieldContent: ''
+        }
+    }
+    render() {
+        return (
+            <div className={styles.item}>
+                <input className={styles.checkbox} type="checkbox" onChange={(event) => {
+                    this.setState({ pushToRedux: event.target.checked });
+                    this.props.onBlur(this.props.name, event.target.checked ? this.state.fieldContent : '');
+                }
+                } />
+                <i className={this.props.icon} />
+                <div className={styles.styledInput} onBlur={(event) => {
+                    this.setState({ fieldContent: event.target.value });
+                    this.props.onBlur(this.props.name, this.state.pushToRedux ? event.target.value : '');
+                }
+                } >
+                    <input type="text" required />
+                    <label>{this.props.children}</label>
+                </div>
+            </div>
+        )
+    }
+}
 class SocialMedia extends Component {
     render() {
         return (
             <ul>
                 <li>
-                    <div className={styles.item}>
-                        <input className={styles.checkbox} type="checkbox" id="linkedin" />
-                        <i className="fab fa-linkedin-in" />
-                        <div className={styles.styledInput} onBlur={(event) => { this.props.onBlur("linkedin", event); }}>
-                            <input type="text" required />
-                            <label>LinkedIn</label>
-                        </div>
-                    </div>
+                    <SocialMediaField name="linkedin" icon="fab fa-linkedin-in" onBlur={this.props.onBlur}>LinkedIn</SocialMediaField>
                 </li>
                 <li>
-                    <div className={styles.item}>
-                        <input className={styles.checkbox} type="checkbox" id="website" />
-                        <i className="fas fa-globe"></i>
-                        <div className={styles.styledInput} onBlur={(event) => { this.props.onBlur("website", event); }}>
-                            <input type="text" required />
-                            <label>Website</label>
-                        </div>
-                    </div>
+                    <SocialMediaField name="website" icon="fas fa-globe" onBlur={this.props.onBlur}>Website</SocialMediaField>
                 </li>
                 <li>
-                    <div className={styles.item}>
-                        <input className={styles.checkbox} type="checkbox" id="twitter" />
-                        <i className="fab fa-twitter"></i>
-                        <div className={styles.styledInput} onBlur={(event) => { this.props.onBlur("twitter", event); }}>
-                            <input type="text" required />
-                            <label>Twitter</label>
-                        </div>
-                    </div>
+                    <SocialMediaField name="twitter" icon="fab fa-twitter" onBlur={this.props.onBlur}>Twitter</SocialMediaField>
                 </li>
                 <li>
-                    <div className={styles.item}>
-                        <input className={styles.checkbox} type="checkbox" id="facebook" />
-                        <i className="fab fa-facebook-f"></i>
-                        <div className={styles.styledInput} onBlur={(event) => { this.props.onBlur("facebook", event); }}>
-                            <input type="text" required />
-                            <label>Facebook</label>
-                        </div>
-                    </div>
+                    <SocialMediaField name="facebook" icon="fab fa-facebook-f" onBlur={this.props.onBlur}>Facebook</SocialMediaField>
                 </li>
                 <li>
-                    <div className={styles.item}>
-                        <input className={styles.checkbox} type="checkbox" id="github" />
-                        <i className="fab fa-github"></i>
-                        <div className={styles.styledInput} onBlur={(event) => { this.props.onBlur("github", event); }}>
-                            <input type="text" required />
-                            <label>GitHub</label>
-                        </div>
-                    </div>
+                    <SocialMediaField name="github" icon="fab fa-github" onBlur={this.props.onBlur}>GitHub</SocialMediaField>
                 </li>
                 <li>
-                    <div className={styles.item}>
-                        <input className={styles.checkbox} type="checkbox" id="stackOverflow" />
-                        <i className="fab fa-stack-overflow"></i>
-                        <div className={styles.styledInput} onBlur={(event) => { this.props.onBlur("stackOverflow", event); }}>
-                            <input type="text" required />
-                            <label>Stack Overflow</label>
-                        </div>
-                    </div>
+                    <SocialMediaField name="stackOverflow" icon="fab fa-stack-overflow" onBlur={this.props.onBlur}>Stack Overflow</SocialMediaField>
                 </li>
             </ul>
         )
@@ -125,7 +113,7 @@ class ContactInfoPopUp extends Component {
                     </li>
                 </ul>
                 {
-                    this.state.showMainContact ? <MainContact onBlur={this.props.onBlur} /> : <SocialMedia onBlur={this.props.onBlur} />
+                    this.state.showMainContact ? <MainContact onBlur={this.props.updateMainContact} /> : <SocialMedia onBlur={this.props.updateSocialMedia} />
                 }
             </section >
         )
@@ -133,19 +121,25 @@ class ContactInfoPopUp extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    onBlur: (stateName, event) => {
-        console.log(event);
+
+    updateSocialMedia: (stateName, data) => {
+        console.log(stateName, data);
+        if (["linkedin", "website", "twitter", "facebook", "github", "stackOverflow"].includes(stateName)) {
+            dispatch(deleteSocialAccount(stateName));
+            if (data.trim()) {
+                dispatch(initSocialAccount(stateName, data));
+            }
+        }
+    },
+    updateMainContact: (stateName, event) => {
         const data = event.target.value;
+        console.log(stateName, data);
         if (stateName === "email")
             dispatch(updateEmail(data));
         else if (stateName === "phoneNumber")
             dispatch(updatePhoneNumber(data));
         else if (stateName === "address")
             dispatch(updateAddress(data));
-        else if (["linkedin", "website", "twitter", "facebook", "github", "stackOverflow"].includes(stateName)) {
-            dispatch(deleteSocialAccount(stateName));
-            dispatch(initSocialAccount(stateName, data));
-        }
     }
 })
 
