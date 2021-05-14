@@ -7,11 +7,12 @@ const initialStoreState = {
         professionalTitle: '',
         pitch: ''
     },
-    contact: {
+    mainContact: {
         email: '',
         phoneNumber: '',
         address: '',
     },
+
     titles: {
         workExperienceTitle: 'EDUCATION',
         educationTitle: 'WORK EXPERIENCE',
@@ -41,11 +42,12 @@ const updatedUserData = {
         professionalTitle: 'Software Developer',
         pitch: 'Short and engaging summanry/pitch about yourself'
     },
-    contact: {
+    mainContact: {
         email: '',
         phoneNumber: '',
         address: '',
     },
+
     titles: {
         workExperienceTitle: 'EDUCATION',
         educationTitle: 'WORK EXPERIENCE',
@@ -78,11 +80,12 @@ const updatedContactData = {
         professionalTitle: '',
         pitch: ''
     },
-    contact: {
+    mainContact: {
         email: 'email@example.com',
         phoneNumber: '+0123456789',
         address: 'Somewhere On Earth',
     },
+
     titles: {
         workExperienceTitle: 'EDUCATION',
         educationTitle: 'WORK EXPERIENCE',
@@ -102,7 +105,7 @@ const updatedContactData = {
     color: '#f25547'
 };
 
-it('should update contact data', () => {
+it('should update mainContact data', () => {
     let result = reducer(undefined, actions.updateEmail('email@example.com'));
     result = reducer(result, actions.updatePhoneNumber('+0123456789'));
     result = reducer(result, actions.updateAddress('Somewhere On Earth'));
@@ -115,11 +118,12 @@ const updatedTitles = {
         professionalTitle: '',
         pitch: ''
     },
-    contact: {
+    mainContact: {
         email: '',
         phoneNumber: '',
         address: '',
     },
+
     titles: {
         workExperienceTitle: 'Professional Experience',
         educationTitle: 'Education',
@@ -152,18 +156,19 @@ const updatedSocialAccountData = {
         professionalTitle: '',
         pitch: ''
     },
-    contact: {
+    mainContact: {
         email: '',
         phoneNumber: '',
         address: '',
     },
+
     titles: {
         workExperienceTitle: 'EDUCATION',
         educationTitle: 'WORK EXPERIENCE',
         skillsTitle: 'SKILLS'
     },
-    socialAccount: [{ id: 1, name: 'Stackoverflow', url: 'my-stackoverflow-account' },
-    { id: 2, name: 'Youtube', url: 'my-youtube-account' }],
+    socialAccount: [{ name: 'Stackoverflow', url: 'my-stackoverflow-account' },
+    { name: 'Youtube', url: 'my-youtube-account' }],
     workExperience: [],
     education: [],
     sectionStatus: {
@@ -178,15 +183,14 @@ const updatedSocialAccountData = {
 };
 
 it('should update social account', () => {
-    let result = reducer(undefined, actions.addSocialAccount());
-    result = reducer(result, actions.updateSocialAccount(0, { name: 'Linkedin', url: 'my-linkedin-account' }));
-    result = reducer(result, actions.addSocialAccount());
-    result = reducer(result, actions.updateSocialAccount(1, { name: 'GitHub' }));
-    result = reducer(result, actions.updateSocialAccount(1, { url: 'my-github-account' }));
-    result = reducer(result, actions.addSocialAccount());
-    result = reducer(result, actions.updateSocialAccount(2, { name: 'Youtube', url: 'my-youtube-account' }));
-    result = reducer(result, actions.updateSocialAccount(1, { name: 'Stackoverflow', url: 'my-stackoverflow-account' }));
-    result = reducer(result, actions.deleteSocialAccount(0));
+    let result = reducer(undefined, actions.initSocialAccount('Linkedin', 'my-linkedin-account'));
+    result = reducer(result, actions.initSocialAccount('Stackoverflow', ''));
+    result = reducer(result, actions.initSocialAccount('GitHub', ''));
+    result = reducer(result, actions.updateSocialAccount('GitHub', 'my-github-account'));
+    result = reducer(result, actions.initSocialAccount('Youtube', 'my-youtube-account'));
+    result = reducer(result, actions.deleteSocialAccount('Linkedin'));
+    result = reducer(result, actions.updateSocialAccount('Stackoverflow', 'my-stackoverflow-account'));
+    result = reducer(result, actions.deleteSocialAccount('GitHub'));
     expect(result).toEqual(updatedSocialAccountData);
 });
 
@@ -196,11 +200,12 @@ const updatedSocialWorkExperience = {
         professionalTitle: '',
         pitch: ''
     },
-    contact: {
+    mainContact: {
         email: '',
         phoneNumber: '',
         address: '',
     },
+
     titles: {
         workExperienceTitle: 'EDUCATION',
         educationTitle: 'WORK EXPERIENCE',
@@ -255,11 +260,12 @@ const updatedEducation = {
         professionalTitle: '',
         pitch: ''
     },
-    contact: {
+    mainContact: {
         email: '',
         phoneNumber: '',
         address: '',
     },
+
     titles: {
         workExperienceTitle: 'EDUCATION',
         educationTitle: 'WORK EXPERIENCE',
@@ -314,7 +320,7 @@ const updatedSectionStatus = {
         professionalTitle: '',
         pitch: ''
     },
-    contact: {
+    mainContact: {
         email: '',
         phoneNumber: '',
         address: '',
@@ -353,11 +359,12 @@ const updatedFontFamily = {
         professionalTitle: '',
         pitch: ''
     },
-    contact: {
+    mainContact: {
         email: '',
         phoneNumber: '',
         address: '',
     },
+
     titles: {
         workExperienceTitle: 'EDUCATION',
         educationTitle: 'WORK EXPERIENCE',
@@ -388,11 +395,12 @@ const updatedColor = {
         professionalTitle: '',
         pitch: ''
     },
-    contact: {
+    mainContact: {
         email: '',
         phoneNumber: '',
         address: '',
     },
+
     titles: {
         workExperienceTitle: 'EDUCATION',
         educationTitle: 'WORK EXPERIENCE',

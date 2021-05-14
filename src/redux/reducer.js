@@ -6,7 +6,7 @@ const initialState = {
         professionalTitle: '',
         pitch: '',
     },
-    contact: {
+    mainContact: {
         email: '',
         phoneNumber: '',
         address: '',
@@ -29,13 +29,6 @@ const initialState = {
     fontFamily: 'sans-serif',
     color: '#f25547'
 }
-
-const pushSocialAccount = (payload) => {
-    if (pushSocialAccount.counter === undefined) {
-        pushSocialAccount.counter = 0;
-    }
-    return { ...payload, id: pushSocialAccount.counter++ };
-};
 
 const pushWorkExperience = (payload) => {
     if (pushWorkExperience.counter === undefined) {
@@ -65,8 +58,8 @@ export default function reducer(state = initialState, action) {
         case Actions.UPDATE_CONTACT_DATA:
             return {
                 ...state,
-                contact: {
-                    ...state.contact,
+                mainContact: {
+                    ...state.mainContact,
                     ...action.payload
                 }
             };
@@ -83,20 +76,20 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 socialAccount: [
                     ...state.socialAccount,
-                    pushSocialAccount(action.payload)
+                    { ...action.payload }
                 ]
             };
 
         case Actions.UPDATE_SOCIAL_ACCOUNT_DATA:
             return {
                 ...state,
-                socialAccount: state.socialAccount.map(socialAccount => socialAccount.id === action.payload.id ? { ...socialAccount, ...action.payload } : socialAccount)
+                socialAccount: state.socialAccount.map(socialAccount => socialAccount.name === action.payload.name ? { ...socialAccount, ...action.payload } : socialAccount)
             };
 
         case Actions.DELETE_SOCIAL_ACCOUNT_DATA:
             return {
                 ...state,
-                socialAccount: state.socialAccount.filter(socialAccount => socialAccount.id !== action.payload.id)
+                socialAccount: state.socialAccount.filter(socialAccount => socialAccount.name !== action.payload.name)
             };
 
         case Actions.ADD_WORK_EXPERIENCE_DATA:

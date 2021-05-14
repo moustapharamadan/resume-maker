@@ -27,21 +27,9 @@ export const updateSkillsSectionStatus = (skills) => updateSectionStatus({ skill
 export const updateFontFamily = (fontFamily) => update(ACTIONS.UPDATE_FONT_FAMILY, fontFamily);
 export const updateColor = (color) => update(ACTIONS.UPDATE_COLOR, color);
 
-const socialAcount = {
-    id: 0,
-    name: '',
-    url: ''
-}
-
-export const addSocialAccount = () => update(ACTIONS.ADD_SOCIAL_ACCOUNT_DATA, socialAcount);
-export const updateSocialAccount = (id, data) => {
-    const payout = {
-        ...data,
-        id: id
-    }
-    return update(ACTIONS.UPDATE_SOCIAL_ACCOUNT_DATA, payout)
-};
-export const deleteSocialAccount = (id) => update(ACTIONS.DELETE_SOCIAL_ACCOUNT_DATA, { id });
+export const initSocialAccount = (name, url) => update(ACTIONS.ADD_SOCIAL_ACCOUNT_DATA, { name, url });
+export const updateSocialAccount = (name, url) => { return update(ACTIONS.UPDATE_SOCIAL_ACCOUNT_DATA, { name, url }) };
+export const deleteSocialAccount = (name) => update(ACTIONS.DELETE_SOCIAL_ACCOUNT_DATA, { name });
 
 const workExperience = {
     id: 0,
