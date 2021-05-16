@@ -100,25 +100,47 @@ class SocialMedia extends Component {
 class ContactInfoPopUp extends Component {
     constructor(props) {
         super(props);
+
+        this.wrapperRef = React.createRef();
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+
         this.state = {
             showMainContact: true
         }
     }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
+            console.log("Outside");
+            this.props.togglePopUp();
+        }
+    }
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
     render() {
         return (
-            <section className={styles.ContactInfoPopUp}>
-                <ul className={styles.contactTab}>
-                    <li className={this.state.showMainContact ? styles.active : ""} onClick={() => this.setState({ showMainContact: true })}>
-                        <h3>Main Contact</h3>
-                    </li>
-                    <li className={!this.state.showMainContact ? styles.active : ""} onClick={() => this.setState({ showMainContact: false })}>
-                        <h3>Social Media</h3>
-                    </li>
-                </ul>
-                {
-                    this.state.showMainContact ? <MainContact onBlur={this.props.updateMainContact} /> : <SocialMedia onBlur={this.props.updateSocialMedia} />
-                }
-            </section >
+            <div className={this.props.className} >
+                <div className={styles.ContactInfoPopUp} ref={this.wrapperRef}>
+                    <ul className={styles.contactTab}>
+                        <li className={this.state.showMainContact ? styles.active : ""} onClick={() => this.setState({ showMainContact: true })}>
+                            <h3>Main Contact</h3>
+                        </li>
+                        <li className={!this.state.showMainContact ? styles.active : ""} onClick={() => this.setState({ showMainContact: false })}>
+                            <h3>Social Media</h3>
+                        </li>
+                    </ul>
+                    {
+                        this.state.showMainContact ? <MainContact onBlur={this.props.updateMainContact} /> : <SocialMedia onBlur={this.props.updateSocialMedia} />
+                    }
+                </div >
+            </div>
         )
     }
 }
