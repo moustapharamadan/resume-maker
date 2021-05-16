@@ -2,19 +2,6 @@ import React, { Component } from 'react'
 import styles from "./styles.module.css"
 import ContactInfoPopUp from "../ContactInfoPopUp/ContactInfoPopUp";
 import store from '../../redux/store';
-
-class Popup extends React.Component {
-    render() {
-        return (
-            <div className='popup'>
-                <div className='popup_inner'>
-                    <h1>{this.props.text}</h1>
-                    <button onClick={this.props.closePopup}>close me</button>
-                </div>
-            </div>
-        );
-    }
-}
 export default class ContactInfo extends Component {
     constructor() {
         super();
@@ -42,39 +29,62 @@ export default class ContactInfo extends Component {
         return accountName;
     }
 
+    getIcon = (contactInfo) => {
+        if (contactInfo === "facebook")
+            return "fab fa-facebook-f";
+        else if (contactInfo === "github")
+            return "fab fa-github";
+        else if (contactInfo === "linkedin")
+            return "fab fa-linkedin-in";
+        else if (contactInfo === "skype")
+            return "fab fa-skype";
+        else if (contactInfo === "twitter")
+            return "fab fa-twitter";
+        else if (contactInfo === "website")
+            return "fas fa-globe";
+
+        return "";
+    }
+
     togglePopUp = () => {
         this.setState({ showPopUpForm: !this.state.showPopUpForm })
     }
 
     render() {
+        const mainContact = store.getState().mainContact;
+        const socialAccount = store.getState().socialAccount;
         return (
             <div>
                 {this.state.showPopUpForm && <ContactInfoPopUp className={styles.popUp} togglePopUp={() => { this.togglePopUp() }} />}
-                <div class={styles.contact_info} onClick={() => { this.togglePopUp() }}>
+                <div className={styles.contact_info} onClick={() => { this.togglePopUp() }}>
                     <ul>
                         <li>
-                            <div class={styles.icon}>
-                                <i class="fas fa-phone"></i><span class={styles.data}>{store.getState().mainContact.phoneNumber}</span>
+                            <div className={styles.icon}>
+                                <i className="fas fa-phone"></i><span className={styles.data}>{mainContact.phoneNumber}</span>
                             </div>
                         </li>
                         <li>
-                            <div class={styles.icon}>
-                                <i class="fas fa-at"></i><span class={styles.data}><a href="mailto:moustapharamadan@hotmail.com" target="_blank">moustapharamadan@hotmail.com</a></span>
+                            <div className={styles.icon}>
+                                <i className="fas fa-at"></i><span className={styles.data}><a href={this.makeURL("email", mainContact.email)} target="_blank">{mainContact.email}</a></span>
                             </div>
                         </li>
+                        {socialAccount.map(account => {
+                            return (
+                                < li >
+                                    <div className={styles.icon}>
+                                        <i className={this.getIcon(account.name)}></i><span className={styles.data}><a href={this.makeURL(account.name, account.url)} target="_blank">{account.url}</a></span>
+                                    </div>
+                                </li>
+                            )
+                        })}
                         <li>
-                            <div class={styles.icon}>
-                                <i class="fab fa-linkedin-in"></i><span class={styles.data}><a href="https://linkedin.com/in/moustapha-ramadan" target="_blank">moustapha-ramadan</a></span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class={styles.icon}>
-                                <i class="fas fa-map-marker-alt"></i><span class={styles.data}>Lebanon, Beirut</span>
+                            <div className={styles.icon}>
+                                <i className="fas fa-map-marker-alt"></i><span className={styles.data}>{mainContact.address}</span>
                             </div>
                         </li>
                     </ul>
                 </div >
-            </div>
+            </div >
         )
     }
 }

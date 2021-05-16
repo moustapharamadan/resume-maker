@@ -111,7 +111,6 @@ class ContactInfoPopUp extends Component {
 
     handleClickOutside(event) {
         if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
-            console.log("Outside");
             this.props.togglePopUp();
         }
     }
