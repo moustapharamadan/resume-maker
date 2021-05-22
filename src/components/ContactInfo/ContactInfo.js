@@ -60,12 +60,12 @@ export default class ContactInfo extends Component {
                     <ul>
                         <li>
                             <div className={styles.icon}>
-                                <i className="fas fa-phone"></i><span className={styles.data}>{mainContact.phoneNumber}</span>
+                                <i className="fas fa-phone"></i><span className={styles.data}>{mainContact.phoneNumber ? mainContact.phoneNumber : "Phone Number"}</span>
                             </div>
                         </li>
                         <li>
                             <div className={styles.icon}>
-                                <i className="fas fa-at"></i><span className={styles.data}><a href={this.makeURL("email", mainContact.email)} target="_blank">{mainContact.email}</a></span>
+                                <i className="fas fa-at"></i><span className={styles.data}><a href={this.makeURL("email", mainContact.email)} target="_blank">{mainContact.email ? mainContact.email : "sample@mail.com"}</a></span>
                             </div>
                         </li>
                         {socialAccount.map(account => {
@@ -79,7 +79,7 @@ export default class ContactInfo extends Component {
                         })}
                         <li>
                             <div className={styles.icon}>
-                                <i className="fas fa-map-marker-alt"></i><span className={styles.data}>{mainContact.address}</span>
+                                <i className="fas fa-map-marker-alt"></i><span className={styles.data}>{mainContact.address ? mainContact.address : "Address"}</span>
                             </div>
                         </li>
                     </ul>
