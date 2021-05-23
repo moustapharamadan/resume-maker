@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 class MainContact extends Component {
     render() {
         return (
-            <ul>
+            <ul className={styles.mainContact}>
                 <li>
                     <div className={styles.item} onBlur={(event) => { this.props.onBlur("phoneNumber", event); }}>
                         <i className="fas fa-phone" />
