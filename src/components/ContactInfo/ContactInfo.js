@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styles from "./styles.module.css"
 import ContactInfoPopUp from "../ContactInfoPopUp/ContactInfoPopUp";
+import { KeepMountedComponent } from "../KeepMountedComponent/KeepMountedComponent";
 import store from '../../redux/store';
 export default class ContactInfo extends Component {
     constructor() {
@@ -55,7 +56,7 @@ export default class ContactInfo extends Component {
         const socialAccount = store.getState().socialAccount;
         return (
             <div>
-                {this.state.showPopUpForm && <ContactInfoPopUp className={styles.popUp} togglePopUp={() => { this.togglePopUp() }} />}
+                <KeepMountedComponent>{this.state.showPopUpForm && <ContactInfoPopUp className={styles.popUp} togglePopUp={() => { this.togglePopUp() }} />}</KeepMountedComponent>
                 <div className={styles.contact_info} onClick={() => { this.togglePopUp() }}>
                     <ul>
                         <li>

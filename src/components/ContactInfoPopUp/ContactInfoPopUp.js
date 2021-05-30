@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styles from "./styles.module.css"
 import { updateEmail, updatePhoneNumber, updateAddress, initSocialAccount, deleteSocialAccount } from '../../redux/action'
 import { connect } from "react-redux";
+import { KeepMountedComponent } from "../KeepMountedComponent/KeepMountedComponent";
 
 class MainContact extends Component {
     render() {
@@ -115,17 +116,9 @@ class ContactInfoPopUp extends Component {
         }
     }
 
-    componentDidMount() {
-        document.addEventListener('mousedown', this.handleClickOutside);
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('mousedown', this.handleClickOutside);
-    }
-
     render() {
         return (
-            <div className={this.props.className} >
+            <div className={this.props.className} onClick={(event) => this.handleClickOutside(event)}>
                 <div className={styles.ContactInfoPopUp} ref={this.wrapperRef}>
                     <ul className={styles.contactTab}>
                         <li className={this.state.showMainContact ? styles.active : ""} onClick={() => this.setState({ showMainContact: true })}>
@@ -135,11 +128,18 @@ class ContactInfoPopUp extends Component {
                             <h3>Social Media</h3>
                         </li>
                     </ul>
-                    {
-                        this.state.showMainContact ? <MainContact onBlur={this.props.updateMainContact} /> : <SocialMedia onBlur={this.props.updateSocialMedia} />
-                    }
+                    <KeepMountedComponent>
+                        {this.state.showMainContact &&
+                            <MainContact onBlur={this.props.updateMainContact} />
+                        }
+                    </KeepMountedComponent>
+                    <KeepMountedComponent>
+                        {!this.state.showMainContact &&
+                            <SocialMedia onBlur={this.props.updateSocialMedia} />
+                        }
+                    </KeepMountedComponent>
                 </div >
-            </div>
+            </div >
         )
     }
 }
